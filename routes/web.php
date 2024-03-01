@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MahasiswaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/', function (Illuminate\Http\Request $request) {
-    $nim = $request->input('nim');
-    $nama = $request->input('nama');
-    $prodi = $request->input('prodi');
-    $fakultas = $request->input('fakultas');
-    $jenis_kelamin = $request->input('jenis_kelamin');
+Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
 
-    // Simpan data ke database atau lakukan operasi lain sesuai kebutuhan
-
-    return redirect('/form')->with('success', 'Form berhasil disubmit!');
-})->name('submit-form');

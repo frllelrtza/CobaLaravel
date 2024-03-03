@@ -23,3 +23,5 @@ Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa
 Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
 Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
 
+
+

@@ -29,8 +29,8 @@
     <div class="mb-3">
         <label for="kelamin" class="form-label">Jenis Kelamin:</label>
         <select class="form-select" id="kelamin" name="kelamin">
-            <option value="Laki-Laki">Laki-Laki</option>
-            <option value="Perempuan">Perempuan</option>
+            <option value="Laki-Laki" id="laki-laki" name="laki-laki">Laki-Laki</option>
+            <option value="Perempuan" id="perempuan" name="perempuan">Perempuan</option>
         </select>
     </div>
     <button type="submit" class="btn btn-primary">Tambah Mahasiswa</button></form>

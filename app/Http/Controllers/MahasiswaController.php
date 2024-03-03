@@ -21,6 +21,7 @@ class MahasiswaController extends Controller
 
     public function store(Request $request)
     {
+
         Mahasiswa::create($request->all());
         return redirect()->route('index');
     }

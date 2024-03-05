@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
-Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
 Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
-
-
+Route::post('/mahasiswa', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
 

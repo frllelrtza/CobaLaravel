@@ -9,20 +9,27 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
-
-        $mahasiswas = Mahasiswa::all();
-        return view('read', compact('mahasiswas'));
+        $mahasiswa = Mahasiswa::all();
+        return view('mahasiswa.index', compact('mahasiswa'));
     }
 
     public function create()
     {
-        return view('create');
-}
+        return view('mahasiswa.create');
+    }
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nim' => 'required|unique:mahasiswa',
+            'nama' => 'required',
+            'prodi' => 'required',
+            'fakultas' => 'required',
+            'kelamin' => 'required|in:L,P',
+        ]);
 
         Mahasiswa::create($request->all());
-        return redirect()->route('index');
+
+        return redirect()->route('mahasiswa.index')->with('success', 'Data mahasiswa berhasil ditambahkan.');
     }
 }
